@@ -1,10 +1,10 @@
-<table style="border-collapse: collapse; border: none; width: auto;">
+<table style="border-collapse: collapse; border: none;">
   <tr>
     <td style="border: none; padding: 0;">
       <img src="Expense_Vibes_Icon.png" alt="Expense Vibes Icon" width="100" style="border-radius: 12px;" />
     </td>
     <td style="border: none; padding-left: 15px; vertical-align: middle;">
-      <h1 style="margin: 0; padding: 10px 20px; background-color: black; color: purple; border-radius: 8px; display: inline-block;">
+      <h1 style="color: purple; background-color: black; padding: 10px 20px; border-radius: 8px; margin: 0; text-decoration: none;">
         Expense Vibes
       </h1>
     </td>
