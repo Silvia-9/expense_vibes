@@ -1,8 +1,13 @@
-# ![Expense Vibes Logo](Expense Vibes Icon.png)   
- Expense Vibes
+ 
+  <tr>
+    <td width="200">
+      <img src="Expense%20Vibes%20Icon.png" alt="Expense Vibes Icon" width="180" />
+    </td>
+    <td>
+      Expense Vibes is a modern, lightweight expense tracking app designed to manage your money easily and efficiently. With powerful features like visualised expense tables, Excel export, and social sharing, tracking your finances has never been more interactive.
+    </td>
+  </tr>
 
-**Expense Vibes** is a modern, lightweight expense tracking app designed to manage your money easily and efficiently.
-With powerful features like visualised expense tables, Excel export, and social sharing, tracking your finances has never been more interactive.
 
 ---
 
