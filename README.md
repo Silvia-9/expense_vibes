@@ -1,9 +1,15 @@
-<div style="display: flex; align-items: center; gap: 15px;">
-  <img src="Expense_Vibes_Icon.png" alt="Expense Vibes Icon" width="100" style="border-radius: 12px;" /> 
-  <h1 style="margin: 0; padding: 10px 20px; background-color: black; color: purple; border-radius: 8px;">
-    Expense Vibes
-  </h1>
-</div>
+<table style="border-collapse: collapse; border: none; width: auto;">
+  <tr>
+    <td style="border: none; padding: 0;">
+      <img src="Expense_Vibes_Icon.png" alt="Expense Vibes Icon" width="100" style="border-radius: 12px;" />
+    </td>
+    <td style="border: none; padding-left: 15px; vertical-align: middle;">
+      <h1 style="margin: 0; padding: 10px 20px; background-color: black; color: purple; border-radius: 8px; display: inline-block;">
+        Expense Vibes
+      </h1>
+    </td>
+  </tr>
+</table>
 
 <p style="font-size: 18px; line-height: 1.6; color: #333; max-width: 720px; margin-top: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
   Expense Vibes is a modern, lightweight expense tracking app designed to manage your money easily and efficiently. With powerful features like visualised expense tables, Excel export, and social sharing, tracking your finances has never been more interactive.
