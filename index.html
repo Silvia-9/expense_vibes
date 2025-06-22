@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Vibes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section">
+            <img src="Expense Vibes Icon.png" alt="Expense Icon" class="expense-icon">
+            <h1>Expense Vibes</h1>
+            <p class="subtitle">Let’s keep those expenses logged !</p>
+            <input type="text" id="name" placeholder="Enter your name" class="short-input" maxlength="20"/>
+            <br>
+            <button onclick="login()">Continue</button>
+            <div class="login-footer" style="text-align:center; color:#888; font-size:0.98em; margin-top:36px;">
+                © 2025 Silvia Wu. All rights reserved.
+            </div>
+        </div>
+
+        <!-- User Greeting at the top -->
+        <h2 id="user-greeting" style="display:none;"></h2>
+
+        <!-- Budget Tracker Section (hidden by default) -->
+        <div id="budget-section" style="display:none; margin-top:30px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                <h2 style="margin: 0;">Receipt</h2>
+                <img src="Expense Vibes Icon.png" alt="Receipt Icon" style="width:40px; height:40px;">
+            </div>
+            <input type="number" id="budget" placeholder="Total budgets" />
+            <input type="date" id="expense-date" placeholder="mm/dd/yy"/>
+            <input type="text" id="expense-name" placeholder="Expense Name" />
+            <input type="number" id="expense-amount" placeholder="Expense Amount" />
+            <button onclick="addExpense()">Add Expense</button>
+
+            <p>Total spent: $<span id="total-budget">0</span></p>
+            <p>Remaining expenses: $<span id="remaining">0</span></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-table"></tbody>
+            </table>
+            <div class="button-row space-between">
+                <button onclick="downloadReceipt()">Download Receipt</button>
+                <button onclick="resetExpenses()">Reset</button>
+                <button onclick="returnToLogin()">Home</button>
+            </div>
+        </div>
+
+        <!-- Social Media Section (visible after login) -->
+        <div id="report-section" style="display:none; text-align:center;">
+            <a href="https://ko-fi.com/silviawu" target="_blank" class="donate-btn" style="background:#3f9ae5; margin-left:10px;">
+                  🌱Support Expense Vibes Alive 🚀
+            </a>
+            <br><br>
+            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="36" height="36" />
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="36" height="36" />
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="36" height="36" />
+            </a>
+            <a href="https://wa.me/" target="_blank" class="social-icon" title="WhatsApp">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="36" height="36" />
+            </a>
+            <br><br>
+            <div class="footer-vibes">
+                © 2025 Silvia Wu. All rights reserved.
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+</body>
+</html>

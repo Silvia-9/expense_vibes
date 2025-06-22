@@ -1,0 +1,346 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #e21c1c;
+    margin-bottom: 20px;
+    font-family:'Segoe UI', Arial, sans-serif;
+    font-size: 2.5em;
+}
+
+/* User Greeting at the top */
+#user-greeting {
+    display: none;
+    text-align: left;
+    margin:10px;
+    color: #d90dc8;
+    font-size: 25px;
+    font-weight:bolder;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-bottom: 10px; /* Reduce bottom margin */
+}
+
+/* Login Section */
+#login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#login-section h1 {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+#login-section p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.05em;
+}
+
+#login-section input[type="text"] {
+    width: 100%;
+    padding: 12px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+#login-section input[type="text"]:focus {
+    border-color: #3182ce;
+    outline: none;
+}
+
+#login-section button {
+    background: #3182ce;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+}
+
+#login-section button:hover {
+    background: #2563eb;
+}
+
+#login-section .short-input {
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+/* Budget Section */
+#budget-section {
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f9f9fb;
+    margin-top: 8px !important; /* Reduce top margin */
+}
+
+#budget-section h2 {
+    margin: 10px;
+    color: #067026;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#budget-section input[type="date"],
+#budget-section input[type="text"],
+#budget-section input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    background: #fff;
+}
+
+#budget-section input[type="date"]:focus,
+#budget-section input[type="text"]:focus,
+#budget-section input[type="number"]:focus {
+    border-color: #ea7f22;
+    outline: none;
+}
+
+#budget-section button {
+    background: #5a22e6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    transition: background 0.2s;
+    display: inline-block;
+    margin-top: 8px; /* Add margin-top for more space above buttons */
+}
+
+#budget-section button:hover {
+    background: #2563eb;
+}
+
+#budget-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    margin-bottom: 24px; /* Increased space below the table */
+    background: #fff;
+    font-size: 1em;
+}
+
+#budget-section th, #budget-section td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 8px;
+    text-align: left;
+}
+
+#budget-section th {
+    background: #e6f0fa;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+#budget-section tr:nth-child(even) {
+    background: #f4f8fb;
+}
+
+#budget-section p {
+    margin: 6px 0;
+    font-weight: 500;
+    color: #2d3748;
+    font-size: 1.1em;
+    text-align: left; /* Change from center to left */
+}
+
+/* Social Media Icons */
+.social-icon {
+    display: inline-block;
+    margin: 0 12px;
+    transition: transform 0.2s;
+}
+.social-icon img {
+    filter: grayscale(1) brightness(0.7);
+    transition: filter 0.2s, transform 0.2s;
+}
+.social-icon:hover img {
+    filter: none;
+    transform: scale(1.15);
+}
+
+/* Social Media Icons with brand colors */
+.social-icon[title="Facebook"] img {
+    filter: none;
+    background: #1877f3;   /* Official Facebook blue */
+    border-radius: 50%;
+    padding: 6px;
+}
+.social-icon[title="Twitter"] img {
+    filter: none;
+    background-color: #1da1f2;
+    border-radius: 50%;
+    padding: 6px;
+}
+.social-icon[title="Instagram"] img {
+    filter: none;
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-radius: 50%;
+    padding: 6px;
+}
+.social-icon[title="WhatsApp"] img {
+    filter: none;
+    background: #25d366;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+/* Donate Button */
+.donate-btn {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px 14px;
+    background: #29abe0;
+    color: #fff;
+    font-size: 0.95em;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 6px rgba(41,171,224,0.08);
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    line-height: 1.5;
+}
+.donate-btn:hover {
+    background: #9020bd;
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    text-decoration: none;
+}
+
+/* Short Input Field */
+.short-input {
+    width: 60px;
+    max-width: 100%;
+}
+
+/* Subtitle Style */
+.subtitle {
+    color: #4d0cd1;
+    font-size: 1.2em;
+    font-weight:bolder;
+    letter-spacing: 0.5px;
+    margin-top: 10;
+    margin-bottom: 15px; 
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+/* Expense Icon Style */
+.expense-icon {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+/* Footer Vibes */
+.footer-vibes {
+    text-align: center;
+    color: #888;
+    font-size: 0.98em;
+    margin-top: 22px;
+    margin-bottom: 0;
+}
+
+/* Button Row Alignment */
+.button-row.left {
+    display: flex;
+    justify-content: flex-start;
+}
+.button-row.space-between {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.button-row.space-between > button:nth-child(2) {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Add these rules to style each button individually by their order in the button row */
+.button-row.space-between button:nth-child(1) {
+    background: #1abc9c !important;   /* Teal for Download Receipt */
+    color: #fff !important;
+}
+.button-row.space-between button:nth-child(2) {
+    background: #e75480 !important;   /* Pink for Reset */
+    color: #fff !important;
+}
+.button-row.space-between button:nth-child(3) {
+    background: #e74c3c !important;   /* Red for Return to Login */
+    color: #fff !important;
+}
+
+/* Optional: Add hover effects for each */
+.button-row.space-between button:nth-child(1):hover {
+    background: #16a085 !important;
+}
+.button-row.space-between button:nth-child(2):hover {
+    background: #c0395a !important;
+}
+.button-row.space-between button:nth-child(3):hover {
+    background: #c0392b !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container, #budget-section {
+        padding: 12px;
+        max-width: 100%;
+    }
+    #budget-section h2, #user-greeting {
+        font-size: 1.2em;
+    }
+    #budget-section th, #budget-section td {
+        padding: 6px 4px;
+    }
+}
