@@ -138,7 +138,7 @@ let expenses = [];
                 e.preventDefault();
                 let platform = this.title.toLowerCase();
                 let text = encodeURIComponent(getExpenseSummary());
-                let url = "https://yourwebsite.com"; // Replace with your actual site URL
+                let url = "https://silvia-9.github.io/expense_vibes/"; // Replace with your actual site URL
                 let shareUrl = "";
 
                 if (platform === "facebook") {
