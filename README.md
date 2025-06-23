@@ -32,3 +32,5 @@
   Share your financial milestones, charts, or summaries directly to social platforms.
 
 ---
+    
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V21GTGDS)
