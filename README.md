@@ -1,6 +1,6 @@
 # Expense Vibes
 <p align="center">
-  <img src="./Expense_Vibes_Icon.png" alt="Expense Vibes Logo" width="200" />
+  <img src="./Expense_Vibes.png" alt="Expense Vibes Logo" width="200" />
 </p>
 
 <p style="font-size: 18px; line-height: 1.6; color: #333; max-width: 720px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
