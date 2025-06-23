@@ -28,17 +28,20 @@ let expenses = [];
     };
 
     function updateExpenseTable() {
-        const tableBody = document.getElementById('expense-table');
-        tableBody.innerHTML = '';
+        const table = document.getElementById('expense-table');
+        table.innerHTML = '';
         expenses.forEach((exp, idx) => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${idx + 1}</td>
                 <td>${exp.date}</td>
-                <td>${exp.name}</td>
+                <td>${exp.name}</td> <!-- Change label in HTML, but keep property as .name for now -->
                 <td>$${exp.amount.toFixed(2)}</td>
+                <td>
+                    <button onclick="deleteExpense(${idx})" style="color:#fff; background:#e74c3c; border:none; border-radius:4px; padding:2px 8px; cursor:pointer;">Delete</button>
+                </td>
             `;
-            tableBody.appendChild(row);
+            table.appendChild(row);
         });
 
         // Add total and remaining as summary rows only if there are expenses
@@ -48,13 +51,13 @@ let expenses = [];
 
             // Total row
             const totalRow = document.createElement('tr');
-            totalRow.innerHTML = `<td colspan="3"><strong>Total spent</strong></td><td><strong>$${total.toFixed(2)}</strong></td>`;
-            tableBody.appendChild(totalRow);
+            totalRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Total spent</strong></td><td><strong>$${total.toFixed(2)}</strong></td>`;
+            table.appendChild(totalRow);
 
             // Remaining row
             const remainingRow = document.createElement('tr');
-            remainingRow.innerHTML = `<td colspan="3"><strong>Remaining budgets</strong></td><td><strong>$${remaining.toFixed(2)}</strong></td>`;
-            tableBody.appendChild(remainingRow);
+            remainingRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Remaining budgets</strong></td><td><strong>$${remaining.toFixed(2)}</strong></td>`;
+            table.appendChild(remainingRow);
         }
     }
 
@@ -64,23 +67,46 @@ let expenses = [];
         document.getElementById('remaining').textContent = (totalBudget - total).toFixed(2);
     }
 
-    window.downloadReceipt = function() {
+    window.downloadReceipt = async function() {
         if (expenses.length === 0) {
             alert('No expenses to download.');
             return;
         }
 
-        let csvContent = "data:text/csv;charset=utf-8,No.,Date,Name,Amount\n";
+        // Create a new workbook and worksheet
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet('Expenses');
+
+        // Add header row
+        worksheet.addRow(['No.', 'Date', 'Expense Description', 'Expense Amount']);
+
+        // Add expense rows
         expenses.forEach((exp, idx) => {
-            csvContent += `${idx + 1},${exp.date},${exp.name},"$${exp.amount.toFixed(2)}"\n`;
+            worksheet.addRow([idx + 1, exp.date, exp.name, exp.amount]);
         });
 
         // Add summary rows
         const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
         const remaining = totalBudget - total;
-        csvContent += `\n,,Total Budgets,"$${totalBudget.toFixed(2)}"\n`;
-        csvContent += `,,Total Spent,"$${total.toFixed(2)}"\n`;
-        csvContent += `,,Remaining budgets,"$${remaining.toFixed(2)}"\n`;
+        worksheet.addRow([]);
+        worksheet.addRow(['', '', 'Total Budgets', totalBudget]);
+        worksheet.addRow(['', '', 'Total Spent', total]);
+        worksheet.addRow(['', '', 'Remaining budgets', remaining]);
+
+        // Format header row
+        worksheet.getRow(1).font = { bold: true };
+
+        // Format amount column as currency
+        worksheet.getColumn(4).numFmt = '"$"#,##0.00;[Red]\-"$"#,##0.00';
+
+        // Auto width for columns
+        worksheet.columns.forEach(column => {
+            let maxLength = 10;
+            column.eachCell({ includeEmpty: true }, cell => {
+                maxLength = Math.max(maxLength, (cell.value ? cell.value.toString().length : 0));
+            });
+            column.width = maxLength + 2;
+        });
 
         // Get today's date in YYYY-MM-DD format
         const today = new Date();
@@ -89,10 +115,12 @@ let expenses = [];
         const dd = String(today.getDate()).padStart(2, '0');
         const dateStr = `${yyyy}-${mm}-${dd}`;
 
-        const encodedUri = encodeURI(csvContent);
+        // Generate and download the Excel file
+        const buffer = await workbook.xlsx.writeBuffer();
+        const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
         const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", `Expense_receipt_${dateStr}.csv`);
+        link.href = URL.createObjectURL(blob);
+        link.download = `Expense_receipt_${dateStr}.xlsx`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -124,12 +152,7 @@ let expenses = [];
 
     function getExpenseSummary() {
         if (!expenses.length) return "No expenses logged yet.";
-        let summary = "My Expenses:\n";
-        expenses.forEach((exp, idx) => {
-            summary += `${idx + 1}. ${exp.date} - ${exp.name}: $${exp.amount.toFixed(2)}\n`;
-        });
-        summary += `\nCheck out Expense Vibes: https://yourwebsite.com`;
-        return summary;
+        return "Just logged my expenses using Expense Vibes.\nTrack yours: https://silvia-9.github.io/expense_vibes/";
     }
 
     window.addEventListener('DOMContentLoaded', function() {
@@ -163,3 +186,11 @@ let expenses = [];
         document.getElementById('user-greeting').style.display = 'none';
         document.getElementById('login-section').style.display = 'block';
     }
+
+    window.deleteExpense = function(idx) {
+        if (confirm("Delete this expense?")) {
+            expenses.splice(idx, 1);
+            updateExpenseTable();
+            updateTotals();
+        }
+    };

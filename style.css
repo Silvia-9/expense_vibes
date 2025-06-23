@@ -16,6 +16,7 @@ body {
     text-align: center;
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -31,7 +32,7 @@ h1 {
     text-align: left;
     margin:10px;
     color: #d90dc8;
-    font-size: 25px;
+    font-size: 28px;
     font-weight:bolder;
     letter-spacing: 1px;
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -256,10 +257,87 @@ h1 {
     text-decoration: none;
 }
 
+/* Enhanced style for the Support Me button */
+.donate-btn.improved-donate-btn {
+    background: linear-gradient(90deg, #ffe259 0%, #ffa751 90%) !important;
+    color: #ff38b8 !important;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 28px;
+    font-size: 1.12em;
+    font-weight: bold;
+    box-shadow: 0 4px 18px rgba(255, 226, 89, 0.18);
+    letter-spacing: 0.7px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    text-decoration: none;
+    min-width: 0;
+    max-width: 260px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.donate-btn.improved-donate-btn:hover {
+    background: linear-gradient(90deg, #ffa751 0%, #ffe259 100%) !important;
+    color: #ff5f5f !important;
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 6px 24px rgba(255, 226, 89, 0.28);
+    text-decoration: none;
+}
+.donate-btn.improved-donate-btn img {
+    height: 26px;
+    width: 26px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Add or update these styles for a brighter, more vibrant button */
+.bright-btn {
+    background: linear-gradient(90deg, #ffe259 0%, #ffa751 100%) !important;
+    color: #d7263d !important;
+    border: none;
+    box-shadow: 0 2px 12px rgba(255, 226, 89, 0.18);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.bright-btn:hover {
+    background: linear-gradient(90deg, #ffa751 0%, #ffe259 100%) !important;
+    color: #fff !important;
+    transform: translateY(-2px) scale(1.05);
+}
+.donate-btn-text {
+    font-weight: bold;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+    padding: 8px 14px;
+    border-radius: 24px;
+    display: inline-block;
+}
+
+/* Make the Support Expense Vibes Alive button shorter and more compact */
+.bright-btn,
+.donate-btn-text {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    min-width: 0 !important;
+    max-width: 220px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 /* Short Input Field */
 .short-input {
-    width: 60px;
-    max-width: 100%;
+    width: 100px;
+    max-width: 60vw;
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1.5px solid #bdbdbd;
+    margin-bottom: 12px;
 }
 
 /* Subtitle Style */
@@ -298,12 +376,40 @@ h1 {
 }
 .button-row.space-between {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
     margin-bottom: 10px;
 }
 .button-row.space-between > button:nth-child(2) {
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Make Download Receipt, Reset, and Home buttons the same length */
+.button-row.space-between > button {
+    flex: 1 1 0;
+    min-width: 120px;
+    max-width: 220px;
+    margin-left: 6px;
+    margin-right: 6px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* On mobile, stack buttons and make them full width */
+@media (max-width: 600px) {
+    .button-row.space-between {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .button-row.space-between > button {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 /* Add these rules to style each button individually by their order in the button row */
@@ -331,16 +437,64 @@ h1 {
     background: #c0392b !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .container, #budget-section {
-        padding: 12px;
-        max-width: 100%;
+/* --- Enhanced Responsive Table for Mobile & Tablets --- */
+@media (max-width: 900px) {
+    #budget-section {
+        padding: 8px 2vw;
+        max-width: 98vw;
     }
-    #budget-section h2, #user-greeting {
-        font-size: 1.2em;
+    #budget-section table {
+        font-size: 0.97em;
+        min-width: 480px;
+        max-width: 100vw;
+        display: block;
+        overflow-x: auto;
     }
     #budget-section th, #budget-section td {
-        padding: 6px 4px;
+        padding: 7px 4px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 4vw 2vw;
+        max-width: 100vw;
+        min-width: 0;
+    }
+    #budget-section {
+        padding: 6px 1vw;
+        max-width: 100vw;
+    }
+    #budget-section table {
+        font-size: 0.93em;
+        min-width: 380px;
+        max-width: 100vw;
+        display: block;
+        overflow-x: auto;
+    }
+    #budget-section th, #budget-section td {
+        padding: 5px 2px;
+        font-size: 0.92em;
+    }
+    .button-row.space-between {
+        flex-direction: column;
+        gap: 8px;
+    }
+    #budget-section input,
+    #budget-section button {
+        max-width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* Make table scrollable horizontally on small screens */
+@media (max-width: 700px) {
+    #budget-section div[style*="overflow-x:auto"] {
+        width: 100vw;
+        overflow-x: auto;
+    }
+    #budget-section table {
+        min-width: 380px;
     }
 }

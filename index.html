@@ -30,28 +30,35 @@
                 <h2 style="margin: 0;">Receipt</h2>
                 <img src="Expense_Vibes_Icon.png" alt="Receipt Icon" style="width:40px; height:40px;">
             </div>
+            <!-- Date input moved here -->
+            <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 8px;">
+                <label for="expense-date" style="font-size:0.98em; color:#555; margin-bottom:0;">Date (mm/dd/yy):</label>
+                <input type="date" id="expense-date" style="min-width:120px; width:100%;" />
+            </div>
             <input type="number" id="budget" placeholder="Total budgets" />
-            <input type="date" id="expense-date" placeholder="mm/dd/yy"/>
-            <input type="text" id="expense-name" placeholder="Expense Name" />
+            <input type="text" id="expense-name" placeholder="Expense Description" />
             <input type="number" id="expense-amount" placeholder="Expense Amount" />
             <button onclick="addExpense()">Add Expense</button>
 
             <p>Total spent: $<span id="total-budget">0</span></p>
             <p>Remaining expenses: $<span id="remaining">0</span></p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody id="expense-table"></tbody>
-            </table>
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Date</th>
+                            <th>Expense Description</th>
+                            <th>Expense Amount</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-table"></tbody>
+                </table>
+            </div>
             <div class="button-row space-between">
-                <button onclick="downloadReceipt()">Download Receipt</button>
+                <button onclick="downloadReceipt()">Download</button>
                 <button onclick="resetExpenses()">Reset</button>
                 <button onclick="returnToLogin()">Home</button>
             </div>
@@ -59,23 +66,33 @@
 
         <!-- Social Media Section (visible after login) -->
         <div id="report-section" style="display:none; text-align:center;">
-            <a href="https://ko-fi.com/silviawu" target="_blank" class="donate-btn" style="background:#3f9ae5; margin-left:10px;">
-                  🌱Support Expense Vibes Alive 🚀
+            <a href="https://ko-fi.com/silviawu" target="_blank" class="donate-btn improved-donate-btn" style="margin-left:10px; display:inline-flex; align-items:center; gap:8px; margin-bottom:10px;">
+                <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png?_gl=1*1rk3v6e*_gcl_au*MTc0Mzg1NzE0Ny4xNzUwNTIzMDk3*_ga*MjUwOTE5MzEzLjE3NTA1MjMwOTE.*_ga_M13FZ7VQ2C*czE3NTA2NzA4NDUkbzckZzEkdDE3NTA2NzA5NzkkajQkbDAkaDA." 
+                     alt="Ko-fi" style="height:22px; width:22px; vertical-align:middle;">
+                Support Me 
             </a>
-            <br><br>
-            <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="36" height="36" />
-            </a>
-            <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="36" height="36" />
-            </a>
-            <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="36" height="36" />
-            </a>
-            <a href="https://wa.me/" target="_blank" class="social-icon" title="WhatsApp">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="36" height="36" />
-            </a>
-            <br><br>
+            <p style="font-weight:bold; color:#444; margin-bottom:6px;">Share Expense Vibes:</p>
+            <div style="margin-bottom: 10px;">
+                <!-- Facebook Share -->
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://silvia-9.github.io/expense_vibes/" 
+                   target="_blank" class="social-icon" title="Facebook">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="36" height="36" />
+                </a>
+                <!-- Twitter Share -->
+                <a href="https://twitter.com/intent/tweet?url=https://silvia-9.github.io/expense_vibes/&text=Check%20out%20Expense%20Vibes%20for%20easy%20budget%20tracking!" 
+                   target="_blank" class="social-icon" title="Twitter">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" width="36" height="36" />
+                </a>
+                <!-- Instagram (profile link, as Instagram does not support direct web sharing) -->
+                <a href="https://instagram.com/" target="_blank" class="social-icon" title="Instagram">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="36" height="36" />
+                </a>
+                <!-- WhatsApp Share -->
+                <a href="https://wa.me/?text=Check%20out%20Expense%20Vibes%20for%20easy%20budget%20tracking!%20https://silvia-9.github.io/expense_vibes/" 
+                   target="_blank" class="social-icon" title="WhatsApp">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="36" height="36" />
+                </a>
+            </div>
             <div class="footer-vibes">
                 © 2025 Silvia Wu. All rights reserved.
             </div>
