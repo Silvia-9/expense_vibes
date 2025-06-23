@@ -12,17 +12,15 @@
 
 ## ✨ Features
 
-- ✅ **Add Each Expense**  
-  Log your daily transactions with category, amount, date, and description.
+✅ Easily Add & Delete Expenses
+Track your daily transactions effortlessly by logging the date, budget, description, and amount for each expense.
+📋 Visualise Your Spending in an Interactive Table
+View all your expenses neatly organised and easy to navigate, so you can quickly analyse where your money goes.
+📥 Export Your Expense History to Excel
+Download your complete expense records in Excel format with just one click for convenient offline access and further analysis.
+🪄🥳 Share Your Financial Progress
+Celebrate your milestones by sharing your summaries or experiences directly with friends and family on social media.
 
-- 📋 **Visualise Your Expenses in a Table**  
-  See all your expenses organised neatly in an interactive table.
-
-- 📥 **Download as Excel**  
-  Export your expense history in Excel format with a single click.
-
-- 📤 **Share on Social Media**  
-  Share your financial milestones, charts, or summaries directly to social platforms.
 
 ---
     
