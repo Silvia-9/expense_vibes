@@ -194,3 +194,7 @@ let expenses = [];
             updateTotals();
         }
     };
+
+    function openKofiModal() {
+        document.getElementById('kofi-modal').style.display = 'flex';
+    }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Vibes</title>
     <meta name="description" content="Expense Vibes - Effortlessly track and manage your expenses. Share, download, and stay on budget!">
-    <meta name="keywords" content="expense, expense tracker, budget, tracker, finance, calculator, download receipt, manage expenses, budgeting tool, personal finance, expense reporter, budget planner, expense log">
+    <meta name="keywords" content="expense, expense tracker, budget, tracker, finance, calculator, download receipt, manage expenses, budgeting tool, personal finance, expense reporter, budget planner, expense log,free tool">
     <meta name="author" content="Silvia Wu">
 
     <!-- Google Search Console verification -->
@@ -86,9 +86,8 @@
 
         <!-- Social Media Section (visible after login) -->
         <div id="report-section" style="display:none; text-align:center;">
-            <a href="https://ko-fi.com/silviawu" target="_blank" class="donate-btn improved-donate-btn" style="margin-left:10px; display:inline-flex; align-items:center; gap:8px; margin-bottom:10px;">
-                <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png?_gl=1*1rk3v6e*_gcl_au*MTc0Mzg1NzE0Ny4xNzUwNTIzMDk3*_ga*MjUwOTE5MzEzLjE3NTA1MjMwOTE.*_ga_M13FZ7VQ2C*czE3NTA2NzA4NDUkbzckZzEkdDE3NTA2NzA5NzkkajQkbDAkaDA." 
-                     alt="Ko-fi" style="height:22px; width:22px; vertical-align:middle;">
+            <a href="#" onclick="openKofiModal(); return false;" class="donate-btn improved-donate-btn" style="margin-left:10px; display:inline-flex; align-items:center; gap:8px; margin-bottom:10px;">
+                <img src="https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png" alt="Ko-fi" style="height:22px; width:22px; vertical-align:middle;">
                 Support Me 
             </a>
             <p style="font-weight:bold; color:#444; margin-bottom:6px;">Share Expense Vibes:</p>
@@ -120,5 +119,13 @@
     </div>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+
+    <!-- Ko-fi Modal -->
+    <div id="kofi-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.55); z-index:9999; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:12px; max-width:420px; width:96vw; margin:auto; position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+            <button onclick="document.getElementById('kofi-modal').style.display='none'" style="position:absolute;top:8px;right:12px;font-size:1.5em;background:none;border:none;cursor:pointer;">×</button>
+            <iframe id="kofiframe" src="https://ko-fi.com/silviawu/?hidefeed=true&widget=true&embed=true&preview=true" style="border:none;width:100%;padding:4px;background:#f9f9f9;" height="712" title="silviawu"></iframe>
+        </div>
+    </div>
 </body>
 </html>
