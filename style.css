@@ -206,32 +206,6 @@ h1 {
     transform: scale(1.15);
 }
 
-/* Mobile responsive social icons */
-@media (max-width: 768px) {
-    .social-icon {
-        margin: 0 8px;
-        display: inline-block;
-    }
-    .social-icon img {
-        width: 32px !important;
-        height: 32px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .social-icon {
-        margin: 0 6px;
-    }
-    .social-icon img {
-        width: 28px !important;
-        height: 28px !important;
-    }
-    /* Stack social icons if needed on very small screens */
-    .social-icon:hover img {
-        transform: scale(1.1);
-    }
-}
-
 /* Social Media Icons with brand colors */
 .social-icon[title="Facebook"] img {
     filter: none;
@@ -430,21 +404,6 @@ h1 {
     box-sizing: border-box;
 }
 
-/* On mobile, stack buttons and make them full width */
-@media (max-width: 600px) {
-    .button-row.space-between {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-    .button-row.space-between > button {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
 /* Add these rules to style each button individually by their order in the button row */
 .button-row.space-between button:nth-child(1) {
     background: #1abc9c !important;   /* Teal for Download Receipt */
@@ -468,6 +427,49 @@ h1 {
 }
 .button-row.space-between button:nth-child(3):hover {
     background: #c0392b !important;
+}
+
+
+
+/* Mobile responsive social icons */
+@media (max-width: 768px) {
+    .social-icon {
+        margin: 0 8px;
+        display: inline-block;
+    }
+    .social-icon img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icon {
+        margin: 0 6px;
+    }
+    .social-icon img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    /* Stack social icons if needed on very small screens */
+    .social-icon:hover img {
+        transform: scale(1.1);
+    }
+}
+
+/* On mobile, stack buttons and make them full width */
+@media (max-width: 600px) {
+    .button-row.space-between {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .button-row.space-between > button {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 /* --- Enhanced Responsive Table for Mobile & Tablets --- */
