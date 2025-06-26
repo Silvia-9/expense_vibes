@@ -395,7 +395,7 @@ h1 {
 
 /* Make Download Receipt, Reset, and Home buttons the same length */
 .button-row.space-between > button {
-    flex: 1 1 0;
+    flex: 110;
     min-width: 120px;
     max-width: 220px;
     margin-left: 6px;
