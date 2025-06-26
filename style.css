@@ -23,7 +23,7 @@ h1 {
     color: #e21c1c;
     margin-bottom: 20px;
     font-family:'Segoe UI', Arial, sans-serif;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
 /* User Greeting at the top */
@@ -206,6 +206,32 @@ h1 {
     transform: scale(1.15);
 }
 
+/* Mobile responsive social icons */
+@media (max-width: 768px) {
+    .social-icon {
+        margin: 0 8px;
+        display: inline-block;
+    }
+    .social-icon img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icon {
+        margin: 0 6px;
+    }
+    .social-icon img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    /* Stack social icons if needed on very small screens */
+    .social-icon:hover img {
+        transform: scale(1.1);
+    }
+}
+
 /* Social Media Icons with brand colors */
 .social-icon[title="Facebook"] img {
     filter: none;
@@ -213,9 +239,9 @@ h1 {
     border-radius: 50%;
     padding: 6px;
 }
-.social-icon[title="Twitter"] img {
+.social-icon[title="Telegram"] img {
     filter: none;
-    background-color: #1da1f2;
+    background-color: #0088cc;
     border-radius: 50%;
     padding: 6px;
 }
@@ -349,13 +375,14 @@ h1 {
 /* Subtitle Style */
 .subtitle {
     color: #4d0cd1;
-    font-size: 1.2em;
-    font-weight:bolder;
-    letter-spacing: 0.5px;
-    margin-top: 10;
-    margin-bottom: 15px; 
+    font-size: 1.3rem;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    margin-top: 10px;
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
 }
 
 /* Expense Icon Style */
@@ -502,5 +529,36 @@ h1 {
     }
     #budget-section table {
         min-width: 380px;
+    }
+}
+
+/* Mobile responsive social media section */
+@media (max-width: 768px) {
+    #report-section {
+        padding: 0 10px;
+    }
+    #report-section p {
+        font-size: 1em !important;
+        margin-left: 15px !important;
+    }
+    #report-section div {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #report-section {
+        padding: 0 5px;
+    }
+    #report-section p {
+        font-size: 0.95em !important;
+        margin-left: 10px !important;
+        letter-spacing: 0.3px !important;
+    }
+    .donate-btn.improved-donate-btn {
+        font-size: 1em !important;
+        padding: 8px 20px !important;
+        margin-left: 5px !important;
     }
 }
