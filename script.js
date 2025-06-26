@@ -1,6 +1,16 @@
 let expenses = [];
     let totalBudget = 0;
 
+    // Utility function to format numbers with commas for thousands
+    function formatCurrency(amount) {
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(amount);
+    }
+
     window.addExpense = function() {
         const name = document.getElementById('expense-name').value.trim();
         const amount = parseFloat(document.getElementById('expense-amount').value);
@@ -49,7 +59,7 @@ let expenses = [];
                 <td>${idx + 1}</td>
                 <td>${exp.date}</td>
                 <td>${exp.name}</td> <!-- Change label in HTML, but keep property as .name for now -->
-                <td>$${exp.amount.toFixed(2)}</td>
+                <td>${formatCurrency(exp.amount)}</td>
                 <td>
                     <button onclick="deleteExpense(${originalIndex})" style="color:#fff; background:#e74c3c; border:none; border-radius:4px; padding:2px 8px; cursor:pointer;">Delete</button>
                 </td>
@@ -64,20 +74,20 @@ let expenses = [];
 
             // Total row
             const totalRow = document.createElement('tr');
-            totalRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Total spent</strong></td><td><strong>$${total.toFixed(2)}</strong></td>`;
+            totalRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Total spent</strong></td><td><strong>${formatCurrency(total)}</strong></td>`;
             table.appendChild(totalRow);
 
             // Remaining row
             const remainingRow = document.createElement('tr');
-            remainingRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Remaining budgets</strong></td><td><strong>$${remaining.toFixed(2)}</strong></td>`;
+            remainingRow.innerHTML = `<td colspan="4" style="text-align:right;"><strong>Remaining budgets</strong></td><td><strong>${formatCurrency(remaining)}</strong></td>`;
             table.appendChild(remainingRow);
         }
     }
 
     function updateTotals() {
         const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
-        document.getElementById('total-budget').textContent = total.toFixed(2);
-        document.getElementById('remaining').textContent = (totalBudget - total).toFixed(2);
+        document.getElementById('total-budget').textContent = formatCurrency(total).replace('$', '');
+        document.getElementById('remaining').textContent = formatCurrency(totalBudget - total).replace('$', '');
     }
 
     window.downloadReceipt = async function() {
@@ -377,8 +387,8 @@ let expenses = [];
             document.getElementById('expense-amount').value = '';
             document.getElementById('expense-date').value = '';
             // Clear the displayed totals as well
-            document.getElementById('total-budget').textContent = '0';
-            document.getElementById('remaining').textContent = '0';
+            document.getElementById('total-budget').textContent = '0.00';
+            document.getElementById('remaining').textContent = '0.00';
         }
     };
 
@@ -402,15 +412,15 @@ let expenses = [];
         });
         
         sortedExpenses.forEach((exp, idx) => {
-            summary += `${idx + 1}. ${exp.date} - ${exp.name}: $${exp.amount.toFixed(2)}\n`;
+            summary += `${idx + 1}. ${exp.date} - ${exp.name}: ${formatCurrency(exp.amount)}\n`;
         });
         
         const total = expenses.reduce((sum, exp) => sum + exp.amount, 0);
         const remaining = totalBudget - total;
         
-        summary += `\nTotal Budget: $${totalBudget.toFixed(2)}\n`;
-        summary += `Total Spent: $${total.toFixed(2)}\n`;
-        summary += `Remaining: $${remaining.toFixed(2)}\n\n`;
+        summary += `\nTotal Budget: ${formatCurrency(totalBudget)}\n`;
+        summary += `Total Spent: ${formatCurrency(total)}\n`;
+        summary += `Remaining: ${formatCurrency(remaining)}\n\n`;
         summary += "Track yours with Expense Vibes: https://silvia-9.github.io/expense_vibes/";
         
         return summary;
@@ -457,8 +467,8 @@ let expenses = [];
                     // Create a modal to show the content and copy it
                     showFacebookShareModal(facebookText, url);
                     return; // Don't use the normal shareUrl approach
-                } else if (platform === "twitter") {
-                    shareUrl = `https://twitter.com/intent/tweet?text=${text}`;
+                } else if (platform === "telegram") {
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${text}`;
                 } else if (platform === "whatsapp") {
                     shareUrl = `https://wa.me/?text=${text}`;
                 } else if (platform === "line") {
